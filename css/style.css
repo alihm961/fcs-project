@@ -13,22 +13,37 @@ h1, h2 {
 }
 
 .form {
-    max-width: 400px;
-    margin: 40px auto;
+    width: 90%;
+    max-width: 350px;
+    margin: 50px auto;
+    padding: 25px;
     background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left; /* shift content slightly left */
 }
 
-input[type="email"],
-input[type="password"] {
+.form input {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
+    padding: 10px;
+    margin-bottom: 18px;
+    font-size: 15px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Optional: make form and inputs responsive */
+@media (max-width: 500px) {
+    .form {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .form input {
+        font-size: 14px;
+        padding: 9px;
+    }
 }
 
 button {
