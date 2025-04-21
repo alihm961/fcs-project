@@ -33,7 +33,6 @@ h1, h2 {
     box-sizing: border-box;
 }
 
-/* Optional: make form and inputs responsive */
 @media (max-width: 500px) {
     .form {
         padding: 20px;
@@ -173,4 +172,22 @@ a:hover {
         margin: 20px;
         padding: 20px;
     }
+}
+
+.logout-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color:#0056b3 ;
 }

@@ -3,7 +3,7 @@ const quizId = quizParams.get("quizId");
 const user = getCurrentUser();
 if (!user) {
     alert("Please login first.");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 const quiz = getQuizzes()[quizId];
@@ -42,4 +42,9 @@ function submitQuiz() {
     setCurrentUser(user);
 
     document.getElementById("result").innerText = `Score: ${score} / ${quiz.length}`;
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "index.html";
 }

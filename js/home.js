@@ -10,7 +10,7 @@ if (!localStorage.getItem("quizzes")) {
 const currentUser = getCurrentUser();
 if (!currentUser) {
     alert("Please login first.");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 document.getElementById("user-info").innerText = "Logged in as: " + currentUser.email;
@@ -22,4 +22,9 @@ for (const quizId in quizzes) {
     const li = document.createElement("li");
     li.innerHTML = `<a href="quiz.html?quizId=${quizId}">${quizId}</a>`;
     list.appendChild(li);
+}
+
+function logout() {
+    localStorage.removeItem("currentUser");
+    window.location.href = "index.html";
 }
