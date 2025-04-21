@@ -11,9 +11,17 @@ const container = document.getElementById("quiz-container");
 
 quiz.forEach((q, i) => {
     const div = document.createElement("div");
-    div.innerHTML = `<p>${q.question}</p>` + q.options.map((opt, j) =>
-        `<label><input type="radio" name="q${i}" value="${j}"> ${opt}</label><br>`
-    ).join("");
+    div.innerHTML = `
+    <p>${q.question}</p>
+    <div class="options">
+        ${q.options.map((opt, j) => `
+            <lable class="option">
+                <input type="radio" name="q${i}" value="${j}">
+                <span>${opt}</span>
+            </lable>
+            `).join('')}
+            </div>
+            `;
     container.appendChild(div);
 });
 
