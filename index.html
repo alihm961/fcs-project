@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Quiz App</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="form">
+        <input type="email" id="login-email" placeholder="Email"><br>
+        <input type="password" id="login-password" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+        <p>Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+    <script>
+        async function setUpAdminAndQuizzes() {
+            if(!localStorage.getItem("users")) {
+                const adminUser = [
+                { email: "admin@quiz.com", password: "admin123", score: {}}
+                ];
+                localStorage.setItem("users", JSON.stringify(adminUser));
+            }
+
+            if(!localStorage.getItem("quizzes")) {
+                try {
+                    const response = await fetch("data/quizzes.json");
+                    const data = await response.json();
+                    localStorage.setItem("quizzes", JSON.stringify(data));
+                } catch (error) {
+                    console.log("Could not load quizzes.json:", error);
+                }
+            }
+        }
+
+        setUpAdminAndQuizzes();
+    </script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
